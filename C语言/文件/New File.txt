@@ -1,0 +1,6 @@
+Hello
+What's your name?
+My name is Lisa.
+Hello World!
+Jorn!
+Welcome to C Programming!ÿ

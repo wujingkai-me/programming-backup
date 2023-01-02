@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script type="text/javascript">
+  // 异步请求时的数据准备
+  const SEND_TYPE = "GET";
+  let url = "https://www.bilibili.com/index/ding.json";
+  const IS_ASYNC = false;
+
+  // 初始化数据
+  let xmlHttpRequest = new XMLHttpRequest();
+  xmlHttpRequest.open(SEND_TYPE, url, IS_ASYNC);
+  xmlHttpRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+  // 开始调用返回内容
+  xmlHttpRequest.onreadystatechange = function(){
+    if(xmlHttpRequest.status == 200 && xmlHttpRequest.readyState == 4){
+      let texts = eval("(" + xmlHttpRequest.responseText + ")");
+      console.log(texts);
+    }
+  }
+
+  // 发送数据
+  xmlHttpRequest.send();
+
+</script>

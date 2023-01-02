@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon关键词分析和采集</title>
+    <style>
+        @import url(Views.css);
+    </style>
+</head>
+<body>
+    <div id="root">
+        <section id="user-selected">
+            <div id="search">
+                <input type="text" v-model="keyword">
+                <span>{{ baseUrl }}</span>
+                <div id="button" @click="search">点击检索</div>
+            </div>
+            <ul class="keywordLists">
+                <li v-for="kw of keywords">
+                    {{ kw }}
+                </li>
+            </ul>
+        </section>
+        <section id="echartsPictureBarOfKeywords" style="width: 100%;height: 600px"></section>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        data: function() {
+            return {
+                countrySortName: {
+                    "美国": "usa",
+                    "英国": "uk",
+                    "西班牙": "es",
+                    "德国": "de",
+                    "意大利": "it",
+                    "法国": "fr",
+                },
+                // 关键词信息
+                keyword: "",
+                keywords: []
+            }
+        },
+        computed: {
+            // 计算选择的url连接
+            baseUrl: function() {
+                // 如果还没有输入
+                if(this.keyword == "")  return "";
+                
+                // 如果输入的关键词不在 国家名字中 就不计算
+                let isIncludeInCountryName = false;
+                for(let name in this.countrySortName){
+                    if(this.keyword == name){
+                        isIncludeInCountryName = true;
+                        break;
+                    }
+                }
+                if(!isIncludeInCountryName) return "";
+
+                // 已输入的国家名称的缩写
+                let selectedCountrySortName = this.countrySortName[this.keyword];
+                let url = `https://www.amz123.com/${selectedCountrySortName}topkeywords.htm`;
+                return url;
+                
+            }
+        },
+        methods: {
+            $(name){
+                if(/#.*?/.test(name))
+                    return document.querySelector(name);
+                else if(/\.*?/.test(name)) 
+                    return document.querySelectorAll(name);
+                else
+                    return document.querySelectorAll(name);
+            },
+            search() {
+                if(this.baseUrl == "") return;
+                else{
+                // 获得数据
+                let url = this.baseUrl;
+                
+                axios({
+                    method: "get",
+                    url: "http://127.0.0.1:1000/datasets",
+                    params: {
+                        url_: url // 传递参数
+                    }
+                }).then((res) => {
+                    this.keywords = res.data;
+                    this.drawEchartsBarOfKeywordRank();
+                }).catch((error) => {
+                    console.log(error);
+                })
+                }
+            },
+            drawEchartsBarOfKeywordRank(){
+                let option = {
+                    title: {
+                        text: '单词排名'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                        type: 'shadow'
+                        }
+                    },
+                    legend: {},
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'value',
+                        boundaryGap: [0, 0.01]
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World']
+                    },
+                    series: [
+                        {
+                        name: '单词',
+                        type: 'bar',
+                        data: [18203, 23489, 29034, 104970, 131744, 630230]
+                        }
+                    ]
+                };
+                let myCharts = echarts.init(this.$("#echartsPictureBarOfKeywords"));
+                myCharts.setOption(option);
+            }
+        }
+    });
+    vm.$mount("#root");
+</script>

@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="lXu0no00OeT0-vNLzLHb" name="第 1 页">
+        <mxGraphModel dx="990" dy="566" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="endArrow=none;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="400" as="sourcePoint"/>
+                        <mxPoint x="400" y="1111.199951171875" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="英语" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="60" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- 语法全搞定&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- 书上的题过完&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- 卷子搞定&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- 买下的题刷完&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="175" width="160" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="数学" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="320" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;div style=&quot;text-align: left&quot;&gt;- 书上的题都过完&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;- 买来的题刷完&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;- 公式记牢&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;- 证明题搞定&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="440" width="180" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="C语言" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="560" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="刷题" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="500" y="680" width="60" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
